@@ -1,0 +1,12 @@
+<div class="home">
+    <h1 id="welcome-message">Welcome to probatorem!</h1>
+    <div> 
+        <button (click)="navigateSignIn($event)" class="btn-login btn-plain btn-green btn-curved btn-bordered">SignIn</button>
+        <p>OR</p>
+        <button (click)="navigateSignUp($event)" class="btn-register btn-plain btn-green btn-curved btn-bordered">SignUp</button>
+    </div>
+
+    <app-questionare [(quiz)]="quiz">
+
+    </app-questionare>
+</div>

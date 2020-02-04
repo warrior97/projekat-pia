@@ -1,0 +1,32 @@
+/*
+#F0E5E6 - svetla
+#009245 - zelena
+#35A1BC - plavicasta
+#616E71 - sucmurasta
+#537862 - tamna
+
+
+*/
+
+.page-header{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    background-color: #35A1BC;
+}
+
+#logo{
+    display: block;
+    margin:auto 0;
+    align-self: flex-start;
+    width:350px;
+    height: 75px;
+    margin-left: 15px;
+}
+.page-header button {
+    align-self: flex-end;
+
+    margin-right: 20px;
+}

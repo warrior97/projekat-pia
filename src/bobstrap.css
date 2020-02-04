@@ -1,0 +1,66 @@
+
+
+/*
+------------- Buttons ----------
+
+*/
+
+.btn-plain{
+    box-shadow: none;
+    border: 0;
+    background: none;
+}
+
+.btn-curved
+{
+    border-radius: 10px;
+}
+.btn-round{
+    border-radius:50%;
+}
+
+.btn-green{
+    background-color:#009245 ;
+}
+
+.btn-bordered{
+    border: 1px solid #009245;
+}
+
+.btn-register,.btn-login{
+    height: 50px;
+    width:150px;
+    cursor: pointer;
+    color:#090E10;
+    font-size: 24px;
+}
+.btn-green:hover{
+    background-color:#4ec372;
+    border-color:#4ec372;
+}
+.btn-register:hover,.btn-login:hover{
+    background-color:#4ec372;
+    border-color:#4ec372;
+}
+
+
+
+
+/*
+------------- Bars ----------
+*/
+
+.bar-blue{
+    background-color: #35A1BC;
+}
+
+
+
+
+/*
+---------Alignment
+*/
+
+.align-center{
+    text-align: center;
+}
