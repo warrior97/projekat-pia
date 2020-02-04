@@ -2,32 +2,55 @@
     <!--Leva kolona je za toolbar, desna za editor-->
     <div class="div1 bar-blue align-center menu-container">
 
-        <img class="btn-round btn-green icon-border" src="./assets/icons/equation.png">
-        <img class="btn-round btn-green icon-border" src="./assets/icons/text.png">
-        <img class="btn-round btn-green icon-border" src="./assets/icons/book.png">
-        <img class="btn-round btn-green icon-border" src="./assets/icons/select.png">
-        <img class="btn-round btn-green icon-border" src="./assets/icons/tickbox.png">
+        <img class="btn-round btn-green icon-border" (click)="addQuestionNumber()" src="./assets/icons/equation.png">
+        <img class="btn-round btn-green icon-border" (click)="addQuestionText()" src="./assets/icons/text.png">
+        <img class="btn-round btn-green icon-border" (click)="addQuestionTextBig()" src="./assets/icons/book.png">
+        <img class="btn-round btn-green icon-border" (click)="addQuestionSelect()" src="./assets/icons/select.png">
+        <img class="btn-round btn-green icon-border" (click)="addQuestionCheckBox()" src="./assets/icons/tickbox.png">
 
     </div>
 
     <div class="div2">
         <div>
             <div>
-                <input class="" type="text" placeholder="Quizz Тitle"  maxlength="100" required />
+                <input class="" type="text" placeholder="Quizz Тitle" maxlength="100" required [(ngModel)]="title" />
             </div>
 
             <div>
-                <textarea class="" placeholder="Quizz Description" maxlength="255"></textarea>
+                <textarea class="" placeholder="Quizz Description" maxlength="255" [(ngModel)]="description"></textarea>
             </div>
 
             <div>
-                <input class="" type="checkbox" id="is-test" /><label>Is Test</label>
+                <input class="" type="checkbox" id="is-test" [(ngModel)]="isTest" /><label>Is Test</label>
             </div>
 
-            <div class="questions-editor">
-                <p>Here questions go!</p>
-            </div>
+            <div class="questions-editor" id="">
+                <div *ngFor="let question of questions">
+                    <div class="qustion-header">
+                        <input class="" type="text" placeholder="Question" maxlength="100" required
+                            [(ngModel)]="question.question" />
+                        <div *ngIf="isTest" class="question-points">
+                            <input class="" type="number" placeholder="points" maxlength="100"
+                                [(ngModel)]="question.points" /><label>Points</label>
+                        </div>
+                    </div>
+                    <div *ngIf="isTest">
+                        <div [ngSwitch]="question.type">
+                            <div *ngSwitchCase="'text'">
+                                <input class="" type="text" placeholder="Question" maxlength="100" required
+                                    [(ngModel)]="question.answer" />
+                            </div>
+                            <div *ngSwitchCase="'textarea'">
+                                <textarea [(ngModel)]="question.answer"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="question.type=='select' || question.type=='checkbox'">
+                        <button>Add another option</button>
 
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>

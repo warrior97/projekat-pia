@@ -3,6 +3,7 @@
 
 */
 
+
 .parent {
     display: grid;
     grid-template-columns: 0.05fr 1fr;
@@ -16,6 +17,7 @@
 
 .div1 {
     grid-area: 1 / 1 / 2 / 2;
+
 }
 
 .div2 {
@@ -23,10 +25,27 @@
 }
 
 
+/* USER CODE */
+textarea {
+    resize: none;
+ }
+.menu-container{
+    max-width: 50px;
+
+    -webkit-box-shadow: 9px 0px 22px -6px rgba(128,128,128,0.5);
+-moz-box-shadow: 9px 0px 22px -6px rgba(128,128,128,0.5);
+box-shadow: 9px 0px 22px -6px rgba(128,128,128,0.5);
+    
+}
+
+
 .menu-container img{
-    margin-top: 10px;
+
     height: 30px;
     width:30px;
+
+    margin:0 5px;
+    margin-top: 10px;
 
     max-width: 30px;
     max-height: 30px;
@@ -35,3 +54,4 @@
 .menu-container img:hover{
     cursor: pointer;
 }
+
