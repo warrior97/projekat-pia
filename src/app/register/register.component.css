@@ -73,3 +73,17 @@ form div input,.file-select{
     font-weight: bold;
     cursor: pointer;
 }
+.blk-error{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.lbl-error{
+    width: 25%;
+    margin: 0 auto;
+    padding: 5px;
+    border:0.2em solid #bc1a12;
+    background-color: #e0e0e0;
+    font-size: 1.2em;
+    font-weight: 500;
+}

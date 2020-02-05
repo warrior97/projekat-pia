@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { QuestionareComponent } from './questionare/questionare.component';
 import { EditorComponent } from './editor/editor.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EditorComponent } from './editor/editor.component';
     LoginComponent,
     RegisterComponent,
     QuestionareComponent,
-    EditorComponent
+    EditorComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

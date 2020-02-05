@@ -8,9 +8,27 @@ export class RegistrationService {
 
   constructor(private http: HttpClient) { }
 
-  public tryRegister(){
-      return this.http.post('/api/users',{
-        //data
-      })
+  public tryRegister(data){
+      let {firstname,lastname,username,password,email,type,phone,picture,dateofbirth,placeofbirth,jmbg}=data;
+
+      return this.http.put<any>('/api/users',{
+        firstname,
+        lastname,
+        username,
+        password,
+        email,
+        type,
+        phone,
+        picture,
+        dateofbirth,
+        placeofbirth,
+        jmbg
+      });
+
+  }
+  public sendApproval(data){
+    return this.http.patch<any>('/api/users',{
+      ...data
+    })
   }
 }

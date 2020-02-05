@@ -5,16 +5,20 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoginService {
+  //Session storage
+
+  public user_session=undefined;
+
 
   constructor(private http:HttpClient) { }
 
   //authentication
 
 
-  public signIn(username:string,password:string) {
-
-    return this.http.post('/api/users/login', {
-      //data
+  public signIn(obj) {
+    let {username,password}= obj;
+    return this.http.post<any>('/api/users', {
+      username,password
     })
   }
 

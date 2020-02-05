@@ -1,3 +1,7 @@
+<div class="blk-error" *ngIf="this.success=='failed'">
+    <p class="lbl-error btn-curved">{{this.message}}</p>
+</div>
+
 <form (submit)="submitRegistration($event)">
     <div>
         <p for="firstname">Fist Name</p><input type="text" name="firstname" id="firstname" [(ngModel)]="firstname" required>
@@ -15,13 +19,13 @@
         <p for="confirmpassword">Confirm Password</p><input type="password" name="confirmpassword" id="confirmpassword" [(ngModel)]="confirmpassword" required>
     </div>
     <div>
-        <p for="birthday">Date Of Birth</p><input type="date" name="birthday" id="birthday" [(ngModel)]="birthday" required>
+        <p for="birthday">Date Of Birth</p><input type="date" name="birthday" id="birthday" [(ngModel)]="dateofbirth" required>
     </div>
     <div>
         <p for="placeofbirth">Place Of Birth</p><input type="text" name="placeofbirth" id="placeofbirth" [(ngModel)]="placeofbirth" required>
     </div>
     <div>
-        <p for="jmbg">Citizen Number</p><input type="text" name="jmbg" id="jmbg" [(ngModel)]="citizenNumber" required>
+        <p for="jmbg">Citizen Number</p><input type="text" name="jmbg" id="jmbg" [(ngModel)]="jmbg" required>
     </div>
     <div>
         <p for="phone">Phone</p><input type="tel" name="phone" id="phone" [(ngModel)]="phone" required>
