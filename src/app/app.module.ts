@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { QuestionareComponent } from './questionare/questionare.component';
 import { EditorComponent } from './editor/editor.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RegisterComponent,
     QuestionareComponent,
     EditorComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

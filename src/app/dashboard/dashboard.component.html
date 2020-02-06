@@ -1,1 +1,11 @@
-<p>dashboard works!</p>
+<div>
+
+    <div class="banner">{{welcomeMessage}}</div>
+    <div *ngFor="let survey of surveys">
+        <div>{{survey.title}}</div><div><button id="{{survey.id}}"(click)="take($event)">Take me!</button></div>
+    </div>
+
+
+
+
+</div>

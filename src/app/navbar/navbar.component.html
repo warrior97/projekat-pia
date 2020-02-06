@@ -1,7 +1,21 @@
 <header class="page-header">
-    <img id="logo" src="assets/logo.png">
-    <div>
-        <button (click)="navigateSignIn($event)" class="btn-login btn-plain btn-green btn-curved btn-bordered">SignIn</button>
-        <button (click)="navigateSignUp($event)" class="btn-register btn-plain btn-green btn-curved btn-bordered">SignUp</button>
-    </div>
+    <img (click)="navigateHome()" id="logo" src="assets/logo.png">
+    <ng-container *ngIf="loginService.user_logged==true; else loggedOut">
+        <div>
+            <button (click)="logOut()" class="btn-login btn-plain btn-green btn-curved btn-bordered">SignOut</button>
+            <div class="pic-cont blk-round">
+                <img src="{{profile_picture}}" class="blk-round prf-pic" (click)="navigateProfile()" />
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #loggedOut>
+        <div>
+            <button (click)="navigateSignIn($event)"
+                class="btn-login btn-plain btn-green btn-curved btn-bordered">SignIn</button>
+            <button (click)="navigateSignUp($event)"
+                class="btn-register btn-plain btn-green btn-curved btn-bordered">SignUp</button>
+        </div>
+    </ng-template>
+
+
 </header>

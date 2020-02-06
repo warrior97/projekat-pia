@@ -72,7 +72,10 @@ textarea {
 
 */
 .blk-curved{
-  
+  border-radius: 10px;
+}
+.blk-round{
+  border-radius: 50%;
 }
 
 

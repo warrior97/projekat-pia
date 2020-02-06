@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       console.log(data)
         if(data.success==true){
           this.loginService.user_session=data.user;
+          this.loginService.user_logged=true;
           this.router.navigate(['/dashboard'])
         }
     }, error => {

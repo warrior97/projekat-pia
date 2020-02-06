@@ -37,7 +37,7 @@
                     <div *ngIf="isTest">
                         <div [ngSwitch]="question.type">
                             <div *ngSwitchCase="'text'">
-                                <input class="" type="text" placeholder="Question" maxlength="100" required
+                                <input class="" type="text" placeholder="Answer" maxlength="100" required
                                     [(ngModel)]="question.answer" />
                             </div>
                             <div *ngSwitchCase="'textarea'">

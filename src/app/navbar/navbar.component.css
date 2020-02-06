@@ -22,11 +22,40 @@
     margin:auto 0;
     align-self: flex-start;
     width:350px;
-    height: 75px;
+    height: 75px; 
     margin-left: 15px;
+    cursor: pointer;
 }
 .page-header button {
-    align-self: flex-end;
-
+    
     margin-right: 20px;
+}
+.page-header div {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.pic-cont{
+    display: inline-block;
+    align-self: flex-end;
+    background-color: white;
+    margin-right: 15px;
+    border: 0.2em solid #4ec372 ;
+}
+
+.prf-pic{
+    
+    width: 50px;
+    height: 50px;
+   
+    background-color: white;
+    cursor: pointer;
+}
+
+.prf-pic:hover{
+    filter: opacity(0.4);
+}
+
+.btn-logout{
+    align-self: flex-end;
 }
