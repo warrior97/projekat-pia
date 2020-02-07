@@ -42,6 +42,6 @@ import { QuestionEditComponent } from './question-edit/question-edit.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [QuestionEditComponent,QuestionComponent]
+  entryComponents: [QuestionEditComponent,QuestionComponent,QuestionareComponent]
 })
 export class AppModule { }

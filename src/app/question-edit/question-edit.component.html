@@ -1,4 +1,5 @@
 <div class="question-container">
+    
     <div class="qustion-header">
         <input class="" type="text" placeholder="Question" maxlength="100" required [(ngModel)]="question.question" />
         <div *ngIf="isTest" class="question-points">
@@ -14,6 +15,10 @@
             </div>
             <div *ngSwitchCase="'textarea'">
                 <textarea [(ngModel)]="question.answer"></textarea>
+            </div>
+            <div *ngSwitchCase="'number'">
+                <input class="" type="text" placeholder="Answer" maxlength="100" required
+                    [(ngModel)]="question.answer" />
             </div>
         </div>
     </div>

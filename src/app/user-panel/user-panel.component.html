@@ -1,5 +1,5 @@
 <div class="banner">{{welcomeMessage}}</div>
-
+<div #quizzContainer></div>
 <div *ngFor="let survey of surveys">
     <div>{{survey.title}} - {{survey.username}}</div>
     <button id="{{survey.id}}" (click)="take($event)">Take survey</button>

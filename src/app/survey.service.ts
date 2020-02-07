@@ -11,5 +11,7 @@ export class SurveyService {
   addSurvey(survey){
     return this.http.put('/api/surveys',{...survey})
   }
-
+  submitResponse(username,response){
+    return this.http.put('/api/responses',{username,response})
+  }
 }

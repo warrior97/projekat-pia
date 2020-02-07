@@ -5,8 +5,22 @@
     <div class="blk-container" *ngFor="let request of requests">
         <img src={{request.picture}} class="prf-pic blk-round">
         <label class="lbl-name">{{request.username}}</label>
-        <button class="btn-plain btn-green btn-bordered btn-curved btn-des" id="{{request.username}}" (click)="allow($event)">ALLOW</button>
-        <button class="btn-plain btn-green btn-bordered btn-curved btn-des"id="{{request.username}}" (click)="deny($event)">DENY</button>    
+        <button class="btn-plain btn-green btn-bordered btn-curved btn-des" id="{{request.username}}"
+            (click)="allow($event)">ALLOW</button>
+        <button class="btn-plain btn-green btn-bordered btn-curved btn-des" id="{{request.username}}"
+            (click)="deny($event)">DENY</button>
+    </div>
+    <div class="blk-container" >
+        <button class="btn-plain btn-green btn-bordered btn-curved btn-des" id="{{user.username}}"
+            (click)="loadUsers()">LOAD USERS</button>
+    </div>
+    <div class="blk-container" *ngIf="!users.length">
+        <label>No users available!</label>
+    </div>
+    <div class="blk-container" *ngFor="let user of users">
+        <img src={{user.picture}} class="prf-pic blk-round">
+        <label class="lbl-name">{{user.username}}</label>
+        <button class="btn-plain btn-green btn-bordered btn-curved btn-des" id="{{user.username}}"
+            (click)="kill($event)">DELETE</button>
     </div>
 </div>
-

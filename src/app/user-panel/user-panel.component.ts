@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { LoginService } from '../login.service';
 import { SurveyService } from '../survey.service';
 import { Router } from '@angular/router';
+import { Question } from '../question';
+import { QuestionComponent } from '../question/question.component';
+import { QuestionareComponent } from '../questionare/questionare.component';
 
 @Component({
   selector: 'app-user-panel',
@@ -11,9 +14,13 @@ import { Router } from '@angular/router';
 export class UserPanelComponent implements OnInit {
 
 
-  constructor(private loginService: LoginService, private surveyService: SurveyService, private router: Router) { }
+  constructor(private loginService: LoginService,
+    private surveyService: SurveyService,
+    private router: Router,
+    private resolver: ComponentFactoryResolver) { }
 
-welcomeMessage='Welcome to our survey app!'
+  welcomeMessage = 'Welcome to our survey app!'
+  @ViewChild('quizzContainer', { read: ViewContainerRef, static: false }) entry: ViewContainerRef;
   ngOnInit() {
   }
   get surveys() {
@@ -21,10 +28,13 @@ welcomeMessage='Welcome to our survey app!'
   }
   take(event) {
     let id = event.target.id;
+    this.entry.clear();
     console.log(id);
     this.surveyService.survey = this.loginService.surveys.find(x => { return x.id == id });
-    if (this.surveyService.survey) {
-      this.router.navigate(['/questionare'])
-    }
+    console.log(this.surveyService.survey);
+    const factory = this.resolver.resolveComponentFactory(QuestionareComponent)
+    const componentRef = this.entry.createComponent(factory);
+    componentRef.instance.survey = this.surveyService.survey;
+
   }
 }

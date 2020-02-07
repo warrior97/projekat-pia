@@ -1,0 +1,25 @@
+<label>{{question.question}}</label>
+<span [ngSwitch]="question.type">
+    <div *ngSwitchCase="'checkbox'">
+        <div *ngFor="let choice of question.choices;let i = index;">
+
+            <input type="checkbox" [(ngModel)]="question.choices[i].answer" name="question.question" />
+            <label>{{choice.text}}</label>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="'text'">
+        <input type="text" [(ngModel)]="question.reply" name="answer" placeholder="Answer" />
+    </div>
+    <div *ngSwitchCase="'select'">
+        <select [(ngModel)]="question.selected" [(ngModel)]="question.reply">
+            <option *ngFor="let choice of question.choices" value={{choice.text}}>
+                {{choice.text}}
+            </option>
+        </select>
+    </div>
+    <div *ngSwitchCase="'number'">
+        <input type="number" [(ngModel)]="question.reply" name="answer" placeholder="Answer" />
+    </div>
+
+</span>
