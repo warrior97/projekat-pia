@@ -29,7 +29,7 @@
 
 .menu-container{
     max-width: 50px;
-
+    height: 100%;
     -webkit-box-shadow: 9px 0px 22px -6px rgba(128,128,128,0.5);
 -moz-box-shadow: 9px 0px 22px -6px rgba(128,128,128,0.5);
 box-shadow: 9px 0px 22px -6px rgba(128,128,128,0.5);

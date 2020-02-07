@@ -1,0 +1,12 @@
+<div>
+    <div class="blk-container" *ngIf="!requests.length">
+        <label>No requests available!</label>
+    </div>
+    <div class="blk-container" *ngFor="let request of requests">
+        <img src={{request.picture}} class="prf-pic blk-round">
+        <label class="lbl-name">{{request.username}}</label>
+        <button class="btn-plain btn-green btn-bordered btn-curved btn-des" id="{{request.username}}" (click)="allow($event)">ALLOW</button>
+        <button class="btn-plain btn-green btn-bordered btn-curved btn-des"id="{{request.username}}" (click)="deny($event)">DENY</button>    
+    </div>
+</div>
+

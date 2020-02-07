@@ -1,10 +1,17 @@
-<div>
+<div class="dashboard-container">
+    <div [ngSwitch]="userType">
+        <div class="dashboard-container" *ngSwitchCase="'admin'">
+            <app-admin></app-admin>
+        </div>
+        <div class="dashboard-container" *ngSwitchCase="'user'">
+            <app-user-panel></app-user-panel>
+        </div>
+        <div class="dashboard-container" *ngSwitchCase="'editor'">
+            <app-editor></app-editor>
+        </div>
+        <!-- <div *ngSwitchDefault>
 
-    <div class="banner">{{welcomeMessage}}</div>
-    <div *ngFor="let survey of surveys">
-        <div>{{survey.title}}</div><div><button id="{{survey.id}}"(click)="take($event)">Take me!</button></div>
-    </div>
-
+</div> -->
 
 
 

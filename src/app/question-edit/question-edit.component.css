@@ -1,0 +1,13 @@
+.question-container{
+    display: flex;
+    width: 25%;
+    height: auto;
+    margin: 10px auto;
+    align-items: center;
+    justify-content:space-between;
+    border-bottom: 0.3em solid transparent;
+}
+.qustion-header{
+    background-color: #fefefe;
+    width: 25%;
+}

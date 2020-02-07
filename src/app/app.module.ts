@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,10 @@ import { QuestionareComponent } from './questionare/questionare.component';
 import { EditorComponent } from './editor/editor.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
+import { QuestionComponent } from './question/question.component';
+import { QuestionEditComponent } from './question-edit/question-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +27,21 @@ import { ProfileComponent } from './profile/profile.component';
     QuestionareComponent,
     EditorComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdminComponent,
+    UserPanelComponent,
+    QuestionComponent,
+    QuestionEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [QuestionEditComponent,QuestionComponent]
 })
 export class AppModule { }

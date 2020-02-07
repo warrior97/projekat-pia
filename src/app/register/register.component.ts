@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   public jmbg;
   public phone;
   public email;
+  public userType='user';
 
   success:string;
   message:string;
@@ -87,7 +88,8 @@ export class RegisterComponent implements OnInit {
       jmbg:this.jmbg,
       phone:this.phone,
       email:this.email,
-      picture:this.image_data
+      picture:this.image_data,
+      type:this.userType
     }
     this.registrationService.tryRegister(obj).subscribe((data)=>{
       console.log(data);

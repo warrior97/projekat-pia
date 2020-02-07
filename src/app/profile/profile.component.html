@@ -1,1 +1,12 @@
-<p>profile works!</p>
+<div class= container>
+    <label class="message">Change Password:</label>
+    <div class="form" [formGroup]="form">
+        <div><input class="" type="password" formControlName="oldPassword" placeholder="Enter old password"></div>
+        <div><input type="password" formControlName="newPassword" placeholder="Enter new password"/></div>
+        <div><input type="password" formControlName="confirmPassword" placeholder="Confirm new password"/> </div>
+        <input (click)="changePassword()" class="btn-change btn-plain btn-green btn-curved" type="submit" id="password" value="Change Password">
+    </div>
+    <div *ngIf="form.get('oldPassword').hasError('required')" style="color:red">Old password is empty!</div>
+    <div *ngIf="form.get('newPassword').hasError('required')" style="color:red">New password is empty!</div>
+    <div *ngIf="form.get('confirmPassword').hasError('required')" style="color:red">Password match is empty!</div>
+</div>

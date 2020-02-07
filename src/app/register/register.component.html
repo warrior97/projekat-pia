@@ -4,7 +4,8 @@
 
 <form (submit)="submitRegistration($event)">
     <div>
-        <p for="firstname">Fist Name</p><input type="text" name="firstname" id="firstname" [(ngModel)]="firstname" required>
+        <p for="firstname">Fist Name</p><input type="text" name="firstname" id="firstname" [(ngModel)]="firstname"
+            required>
     </div>
     <div>
         <p for="lastname">Last Name</p><input type="text" name="lastname" id="lastname" [(ngModel)]="lastname" required>
@@ -13,16 +14,26 @@
         <p for="username">Username</p><input type="text" name="username" id="username" [(ngModel)]="username" required>
     </div>
     <div>
-        <p for="password">Password</p><input type="password" name="password" id="password" [(ngModel)]="password" required>
+        <p for="password">Password</p><input type="password" name="password" id="password" [(ngModel)]="password"
+            required>
     </div>
     <div>
-        <p for="confirmpassword">Confirm Password</p><input type="password" name="confirmpassword" id="confirmpassword" [(ngModel)]="confirmpassword" required>
+        <p for="confirmpassword">Confirm Password</p><input type="password" name="confirmpassword" id="confirmpassword"
+            [(ngModel)]="confirmpassword" required>
     </div>
     <div>
-        <p for="birthday">Date Of Birth</p><input type="date" name="birthday" id="birthday" [(ngModel)]="dateofbirth" required>
+        <p for="userType">Account Type</p><select name="userType" id="userType" [(ngModel)]="userType" required>
+            <option value="editor">Editor</option>
+            <option value="user">User</option>
+        </select>
     </div>
     <div>
-        <p for="placeofbirth">Place Of Birth</p><input type="text" name="placeofbirth" id="placeofbirth" [(ngModel)]="placeofbirth" required>
+        <p for="birthday">Date Of Birth</p><input type="date" name="birthday" id="birthday" [(ngModel)]="dateofbirth"
+            required>
+    </div>
+    <div>
+        <p for="placeofbirth">Place Of Birth</p><input type="text" name="placeofbirth" id="placeofbirth"
+            [(ngModel)]="placeofbirth" required>
     </div>
     <div>
         <p for="jmbg">Citizen Number</p><input type="text" name="jmbg" id="jmbg" [(ngModel)]="jmbg" required>
@@ -34,10 +45,11 @@
         <p for="email">Email</p><input type="email" name="email" id="email" [(ngModel)]="email" required>
     </div>
     <div class="no-border">
-        <p for="profilepicture">Profile Photo</p><input type="file" accept=".png,.jpg,.jpeg"  name="profilepicture" id="profilepicture" class="hidden-file-btn" (change)="updateSelected($event)" required>
+        <p for="profilepicture">Profile Photo</p><input type="file" accept=".png,.jpg,.jpeg" name="profilepicture"
+            id="profilepicture" class="hidden-file-btn" (change)="updateSelected($event)" required>
         <label for="profilepicture" class="file-select btn-plain btn-green btn-curved">Select file</label>
     </div>
-    <div class="selected-image no-border" *ngIf="image!=null"><img src="{{image}}"/></div>
+    <div class="selected-image no-border" *ngIf="image!=null"><img src="{{image}}" /></div>
     <input class="btn-signup btn-plain btn-green btn-curved" type="submit" value="SignUp">
     {{placeofbirth}}
 </form>

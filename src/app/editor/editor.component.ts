@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { Question } from '../question';
+import {QuestionEditComponent} from '../question-edit/question-edit.component'
+import { SurveyService } from '../survey.service';
+import { Quiz } from '../quiz';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-editor',
@@ -8,18 +12,29 @@ import { Question } from '../question';
 })
 export class EditorComponent implements OnInit {
 
-  questions=[];
-  title:string;
-  description:string;
+  public quiz=new Quiz();
+
+
   isTest:boolean;
-  constructor() { }
+  @ViewChild('questionContainer', {read:ViewContainerRef,static:false}) entry: ViewContainerRef;
+  
+  constructor(
+    private resolver: ComponentFactoryResolver,
+    private surveyService:SurveyService,
+    private loginService:LoginService
+    ) { }
 
   ngOnInit() {
   }
   private addQuestion(type:string){
+
     let ques=new Question();
     ques.type=type;
-    this.questions.push(ques);
+    this.quiz.questions.push(ques);
+    const factory= this.resolver.resolveComponentFactory(QuestionEditComponent)
+    const componentRef = this.entry.createComponent(factory);
+    componentRef.instance.isTest=this.quiz.test;
+    componentRef.instance.question=ques;
 
   }
 
@@ -38,6 +53,16 @@ export class EditorComponent implements OnInit {
   }
   addQuestionCheckBox(){
     this.addQuestion('checkbox');
+  }
+  submitQuestionare(){
+
+    console.log(this.quiz);
+    this.quiz.username=this.loginService.user_session.username;
+    this.surveyService.addSurvey(this.quiz).subscribe(data=>{
+      console.log(data);
+    },error=>{
+      console.log(error);
+    });
   }
  
 }

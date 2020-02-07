@@ -77,7 +77,12 @@ form div input,.file-select{
     margin-top: 20px;
     text-align: center;
 }
-
+select{
+    width: 40%;
+    height: 2em;
+    font-size: 1.0em;
+    justify-self: flex-end;
+}
 .lbl-error{
     width: 25%;
     margin: 0 auto;

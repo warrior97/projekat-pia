@@ -13,44 +13,33 @@
     <div class="div2">
         <div>
             <div>
-                <input class="" type="text" placeholder="Quizz Тitle" maxlength="100" required [(ngModel)]="title" />
+                <input class="" type="text" placeholder="Quizz Тitle" maxlength="100" required [(ngModel)]="quiz.title" />
             </div>
 
             <div>
-                <textarea class="" placeholder="Quizz Description" maxlength="255" [(ngModel)]="description"></textarea>
+                <textarea class="" placeholder="Quizz Description" maxlength="255" [(ngModel)]="quiz.description"></textarea>
             </div>
 
             <div>
-                <input class="" type="checkbox" id="is-test" [(ngModel)]="isTest" /><label>Is Test</label>
+                <input class="" type="checkbox" id="is-test" [(ngModel)]="quiz.test" /><label>Is Test</label>
+            </div>
+            <div>
+                <input class="" type="checkbox" id="is-random" [(ngModel)]="quiz.randomize" /><label>Is Random</label>
+            </div>
+            <div>
+                <input class="" type="date" id="is-random" [(ngModel)]="quiz.valid_from_datetime" /><label>Date start</label>
+            </div>
+            <div>
+                <input class="" type="date" id="is-random" [(ngModel)]="quiz.valid_to_datetime" /><label>Date end</label>
             </div>
 
-            <div class="questions-editor" id="">
-                <div *ngFor="let question of questions">
-                    <div class="qustion-header">
-                        <input class="" type="text" placeholder="Question" maxlength="100" required
-                            [(ngModel)]="question.question" />
-                        <div *ngIf="isTest" class="question-points">
-                            <input class="" type="number" placeholder="points" maxlength="100"
-                                [(ngModel)]="question.points" /><label>Points</label>
-                        </div>
-                    </div>
-                    <div *ngIf="isTest">
-                        <div [ngSwitch]="question.type">
-                            <div *ngSwitchCase="'text'">
-                                <input class="" type="text" placeholder="Answer" maxlength="100" required
-                                    [(ngModel)]="question.answer" />
-                            </div>
-                            <div *ngSwitchCase="'textarea'">
-                                <textarea [(ngModel)]="question.answer"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div *ngIf="question.type=='select' || question.type=='checkbox'">
-                        <button>Add another option</button>
 
-                    </div>
-                </div>
+            <div #questionContainer class="questions-editor" id="">
+               
 
+            </div>
+            <div>
+                <button (click)="submitQuestionare()" class="btn-plain btn-green btn-curved btn-bordered">Submit</button>
             </div>
         </div>
     </div>

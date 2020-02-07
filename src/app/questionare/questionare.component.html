@@ -5,19 +5,25 @@
     <div *ngFor="let question of quiz.questions">
         <p>{{question.question}}</p>
         <span [ngSwitch]="question.type">
-            <div *ngSwitchCase="'radio'">
+            <div *ngSwitchCase="'checkbox'">
                 <div *ngFor="let choice of question.choices">
-                    <input type="radio" value="choice" name="question.name" />
-                    <label>{{choice}}</label>
+                    <input type="checkbox" value="" name="question.question" />
+                    <label>{{choice.text}}</label>
                 </div>
             </div>
 
             <div *ngSwitchCase="'text'">
-                <input type="text" name="question.name" />
+                <input type="text" name="answer" placeholder="Answer" />
             </div>
-
-            <div *ngSwitchDefault>
-                Bad Data Format!
+            <div *ngSwitchCase="'select'">
+                <select>
+                <option *ngFor="let choice of question.choices" value={{choice.text}}>
+                    {{choice.text}}
+                </option>
+            </select>
+            </div>
+            <div *ngSwitchCase="'number'">
+                <input type="number" name="answer" placeholder="Answer" />
             </div>
 
         </span>

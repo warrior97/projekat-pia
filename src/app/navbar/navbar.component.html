@@ -1,7 +1,7 @@
 <header class="page-header">
     <img (click)="navigateHome()" id="logo" src="assets/logo.png">
     <ng-container *ngIf="loginService.user_logged==true; else loggedOut">
-        <div>
+        <div class="blk-container">
             <button (click)="logOut()" class="btn-login btn-plain btn-green btn-curved btn-bordered">SignOut</button>
             <div class="pic-cont blk-round">
                 <img src="{{profile_picture}}" class="blk-round prf-pic" (click)="navigateProfile()" />

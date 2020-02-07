@@ -10,23 +10,24 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private loginService:LoginService,private surveyService:SurveyService,private router:Router) { }
-  get welcomeMessage():String{
+  constructor(private loginService: LoginService, private surveyService: SurveyService, private router: Router) { }
+
+  get userType() {
+    if (this.loginService.user_session)
+      return this.loginService.user_session.type;
+    else return 'none'
+  }
+
+
+
+
+  get welcomeMessage(): String {
     return `Welcome ${this.loginService.user_session.firstname} ${this.loginService.user_session.lastname}!`;
   }
-  get surveys(){
-    return this.loginService.surveys;
-  }
+
   ngOnInit() {
   }
 
-  take(event){
-    let id=event.target.id;
-    console.log(id);
-    this.surveyService.survey=this.loginService.surveys.find(x=>{return x.id==id});
-    if(this.surveyService.survey){
-      this.router.navigate(['/questionare'])
-    }
-  }
+
 
 }
